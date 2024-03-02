@@ -1,0 +1,10 @@
+[package]
+name = "class-memo"
+version = "0.1.0"
+entrypoint = "src/lib.typ"
+authors = ["monaqa"]
+license = "MIT"
+description = "個人用のメモに使うクラスファイル。"
+repository = "https://github.com/monaqa/typst-class-memo"
+keywords = ["template"]
+exclude = []
