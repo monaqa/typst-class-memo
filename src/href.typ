@@ -1,3 +1,5 @@
+//! target: ../.memo.local/memo.typ
+
 #let parse_url(url) = {
   let body = url.trim(regex("http[s]?://"))
   let (domain, ..path_ary) = body.split("/")

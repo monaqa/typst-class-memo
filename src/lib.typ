@@ -1,6 +1,13 @@
-#import "href.typ"
+//! target: ../.memo.local/memo.typ
 
-#let document(link_converters: href.default_link_converters, body) = {
+#import "href.typ"
+#import "code.typ"
+
+#let document(
+  show_toc: false,
+  link_converters: href.default_link_converters,
+  body,
+) = {
   // text & paragraph
   set text(font: "IBM Plex Sans JP")
   set par(justify: true, leading: 0.85em)
@@ -63,10 +70,24 @@
     "Noto Sans Mono CJK JP",
   ))
   show raw.where(block: true): set par(leading: 0.6em)
-  show raw.where(block: true): block.with(
-      width: 100%,
-      fill: luma(95%), inset: (x: 4pt, top: 6pt, bottom: 6pt), radius: 2pt
-  )
+  show raw.where(block: true): (it) => {
+    if it.lang == "sh" {
+      code.console_block(it)
+    } else {
+      code.normal_raw_block(it)
+    }
+  }
+  // show raw.where(block: true): set block(
+  //   width: 100%,
+  //   fill: luma(95%),
+  //   inset: (x: 4pt, top: 6pt, bottom: 6pt),
+  //   radius: 2pt,
+  //   )
+
+  if show_toc {
+    outline(indent: 1em)
+    pagebreak()
+  }
 
   body
 }
