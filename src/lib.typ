@@ -77,12 +77,10 @@
       code.normal_raw_block(it)
     }
   }
-  // show raw.where(block: true): set block(
-  //   width: 100%,
-  //   fill: luma(95%),
-  //   inset: (x: 4pt, top: 6pt, bottom: 6pt),
-  //   radius: 2pt,
-  //   )
+
+  set quote(block: true)
+  show quote.where(block: true): set block(stroke: (left: 2pt + gray), inset: 0pt, outset: 5pt)
+  show quote.where(block: true): set pad(x: 10pt)
 
   if show_toc {
     outline(indent: 1em)
